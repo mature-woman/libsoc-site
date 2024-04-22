@@ -1,0 +1,17 @@
+[Unit]
+Description=libsoc.org
+
+Wants=network.target
+After=syslog.target network-online.target
+
+[Service]
+WorkingDirectory=/var/www/libsoc.org/Server
+ExecStart=/var/www/libsoc.org/Server/bin/server.sh
+PIDFile=/var/run/php/libsoc.pid
+RemainAfterExit=no
+RuntimeMaxSec=86400s
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
